@@ -1,0 +1,15 @@
+TLTMON:1
+! drop_supplies U at_destination
+3
+-(-1, 1)
+?(0, 0)
++(1, -1)
+2
+at_destination
+drop_supplies
+0,0,0
+0,1,0
+1,0,2
+1,1,0
+2,0,2
+2,1,2

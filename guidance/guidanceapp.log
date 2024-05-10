@@ -1,0 +1,277 @@
+Guidance app starting up
+Server task starting
+RunServer() starting on port: 0.0.0.0:50052
+Server listening on port: 0.0.0.0:50052
+GuidanceServiceImplementation::subscribeStatus() invoked
+Client task starting
+Governor task starting
+RunClient() starting on port: 0.0.0.0:50055
+RunGovernor() starting 
+Base Latitude: 47.397742 and Base Longitude: 8.545594 stored.
+
+GuidanceServiceImplementation::addWaypoint() invoked
+GuidanceServiceImplementation::takeOff() invoked
+GuidanceServiceImplementation::start() invoked
+Waypoint coordinates set:: Latitude: 47.400000 Longitude: 8.550000 Altitude 1.700000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+Guidance app starting up
+Server task starting
+RunServer() starting on port: 0.0.0.0:50052
+Server listening on port: 0.0.0.0:50052
+GuidanceServiceImplementation::subscribeStatus() invoked
+Client task starting
+Governor task starting
+RunClient() starting on port: 0.0.0.0:50055
+RunGovernor() starting 
+Base Latitude: 47.397742 and Base Longitude: 8.545594 stored.
+
+GuidanceServiceImplementation::addWaypoint() invoked
+GuidanceServiceImplementation::takeOff() invoked
+GuidanceServiceImplementation::start() invoked
+Waypoint coordinates set:: Latitude: 47.400000 Longitude: 8.550000 Altitude 1.700000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+Guidance app starting up
+Server task starting
+RunServer() starting on port: 0.0.0.0:50052
+Server listening on port: 0.0.0.0:50052
+Client task starting
+Governor task starting
+RunClient() starting on port: 0.0.0.0:50055
+RunGovernor() starting 
+GuidanceServiceImplementation::subscribeStatus() invoked
+Base Latitude: 47.397742 and Base Longitude: 8.545594 stored.
+
+GuidanceServiceImplementation::addWaypoint() invoked
+GuidanceServiceImplementation::takeOff() invoked
+GuidanceServiceImplementation::start() invoked
+Waypoint coordinates set:: Latitude: 47.400000 Longitude: 8.550000 Altitude 1.700000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to BASEREACHED
+GuidanceServiceImplementation::land() invoked
+Guidance app starting up
+Server task starting
+RunServer() starting on port: 0.0.0.0:50052
+Server listening on port: 0.0.0.0:50052
+GuidanceServiceImplementation::subscribeStatus() invoked
+Client task starting
+Governor task starting
+RunClient() starting on port: 0.0.0.0:50055
+RunGovernor() starting 
+Base Latitude: 47.397742 and Base Longitude: 8.545594 stored.
+
+GuidanceServiceImplementation::addWaypoint() invoked
+GuidanceServiceImplementation::takeOff() invoked
+GuidanceServiceImplementation::start() invoked
+Waypoint coordinates set:: Latitude: 47.400000 Longitude: 8.550000 Altitude 1.700000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to BASEREACHED
+GuidanceServiceImplementation::land() invoked
+Guidance app starting up
+Server task starting
+RunServer() starting on port: 0.0.0.0:50052
+Server listening on port: 0.0.0.0:50052
+Client task starting
+Governor task starting
+RunClient() starting on port: 0.0.0.0:50055
+RunGovernor() starting 
+GuidanceServiceImplementation::subscribeStatus() invoked
+Base Latitude: 47.397742 and Base Longitude: 8.545594 stored.
+
+GuidanceServiceImplementation::addWaypoint() invoked
+GuidanceServiceImplementation::takeOff() invoked
+GuidanceServiceImplementation::start() invoked
+Waypoint coordinates set:: Latitude: 47.400000 Longitude: 8.550000 Altitude 1.700000 .
+
+State changed to WAYPOINREACHED
+GuidanceServiceImplementation::returnToBase() invoked
+Waypoint coordinates set:: Latitude: 47.397742 Longitude: 8.545594 Altitude 1.500000 .
+
+State changed to BASEREACHED
+GuidanceServiceImplementation::land() invoked
+Guidance app starting up
+Server task starting
+RunServer() starting on port: 0.0.0.0:50052
+Server listening on port: 0.0.0.0:50052
+Client task starting
+Governor task starting
+RunClient() starting on port: 0.0.0.0:50055
+RunGovernor() starting 
+Base Latitude: 47.397742 and Base Longitude: 8.545594 stored.
+
+Guidance app starting up
+Server task starting
+RunServer() starting on port: 0.0.0.0:50052
+Server listening on port: 0.0.0.0:50052
+Client task starting
+Governor task starting
+RunClient() starting on port: 0.0.0.0:50055
+RunGovernor() starting 
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called
+OdometryCallback called

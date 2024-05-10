@@ -1,0 +1,32 @@
+Gcs app starting up
+Client task starting
+RunClient starting on port: 0.0.0.0:50051
+Sending command: takeoff
+Exiting client task
+Gcs app shutting down
+Gcs app starting up
+Client task starting
+RunClient starting on port: 0.0.0.0:50051
+Sending command: setmissionparams
+Parameters:: Altitude: 1.700000 Latitude: 47.400000 Longitude: 8.550000 Start: 0 End: 10
+Exiting client task
+Gcs app shutting down
+Gcs app starting up
+Client task starting
+RunClient starting on port: 0.0.0.0:50051
+Sending command: takeoff
+Exiting client task
+Gcs app shutting down
+Gcs app starting up
+Client task starting
+RunClient starting on port: 0.0.0.0:50051
+Sending command: setmissionparams
+Parameters:: Altitude: 1.700000 Latitude: 47.400000 Longitude: 8.550000 Start: 0 End: 10
+Exiting client task
+Gcs app shutting down
+Gcs app starting up
+Client task starting
+RunClient starting on port: 0.0.0.0:50051
+Sending command: takeoff
+Exiting client task
+Gcs app shutting down

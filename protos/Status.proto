@@ -1,0 +1,68 @@
+/*
+ * FALSA Model Problem
+ * 
+ * Copyright 2024 Carnegie Mellon University.
+ * 
+ * NO WARRANTY. THIS CARNEGIE MELLON UNIVERSITY AND SOFTWARE ENGINEERING
+ * INSTITUTE MATERIAL IS FURNISHED ON AN "AS-IS" BASIS. CARNEGIE MELLON
+ * UNIVERSITY MAKES NO WARRANTIES OF ANY KIND, EITHER EXPRESSED OR IMPLIED, AS
+ * TO ANY MATTER INCLUDING, BUT NOT LIMITED TO, WARRANTY OF FITNESS FOR PURPOSE
+ * OR MERCHANTABILITY, EXCLUSIVITY, OR RESULTS OBTAINED FROM USE OF THE
+ * MATERIAL. CARNEGIE MELLON UNIVERSITY DOES NOT MAKE ANY WARRANTY OF ANY KIND
+ * WITH RESPECT TO FREEDOM FROM PATENT, TRADEMARK, OR COPYRIGHT INFRINGEMENT.
+ * 
+ * Licensed under a MIT (SEI)-style license, please see license.txt or contact
+ * permission@sei.cmu.edu for full terms.
+ * 
+ * [DISTRIBUTION STATEMENT A] This material has been approved for public
+ * release and unlimited distribution.  Please see Copyright notice for non-US
+ * Government use and distribution.
+ * 
+ * This Software includes and/or makes use of Third-Party Software each subject
+ * to its own license.
+ * 
+ * DM24-0251
+ */
+
+
+
+syntax = "proto3";
+
+package uav;
+
+import "LatLonCoord.proto";
+import "Time.proto";
+import "Waypoint.proto";
+
+
+import "google/protobuf/empty.proto";
+
+enum State{
+  INITIALIZED=0;
+  LANDED=1;
+  TAKINGOFF=2;
+  TAKEOFFFAILED=3;
+  FLYING=4;
+  FLYINGTOBASE =5;
+  WAYPOINTREACHED=6;
+  BASEREACHED=7;
+  LASTWAYPOINTUNREACHABLE=8;
+  LANDING=9;
+}
+
+message StatusMessage {
+    LatLonCoord position = 1;
+    double altitude = 2;
+    double battery_level = 3;
+    Time time_to_last_waypoint = 4;
+    Waypoint next_waypoint = 5;
+    State state = 6;
+    Time time = 7;
+}
+
+
+service MissionManagerStatus {
+
+    rpc saveStatus (StatusMessage) returns (.google.protobuf.Empty) {}
+
+}

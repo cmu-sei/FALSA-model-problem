@@ -1,0 +1,27 @@
+{
+    "name": "ModelProblemDevCont",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "containerEnv": {
+        "DISPLAY": "host.docker.internal:0"
+    },
+    "runArgs": [
+        "--network=host",
+        "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+        "--platform=linux/x86_64",
+        "--cap-add=SYS_PTRACE",
+        "--security-opt",
+        "seccomp=unconfined"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cpptools-extension-pack",
+                "twxs.cmake",
+                "ms-vscode.cmake-tools"
+            ]
+        }
+    }
+}

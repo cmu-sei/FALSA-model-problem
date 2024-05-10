@@ -1,0 +1,16 @@
+diff --git a/platforms/posix/src/px4/common/px4_daemon/server.cpp b/platforms/posix/src/px4/common/px4_daemon/server.cpp
+index c3b012bb84..a344551460 100644
+--- a/platforms/posix/src/px4/common/px4_daemon/server.cpp
++++ b/platforms/posix/src/px4/common/px4_daemon/server.cpp
+@@ -146,6 +146,11 @@ Server::_server_main()
+ 	// stdouts[i] corresponds to poll_fds[i+1].
+ 	std::vector<FILE *> stdouts;
+ 
++	// running in Docker in macOS, the first poll will get EINTR, which
++	// exits the loop and terminates the thread.
++	// This delay prevents that.
++	sleep(1);
++
+ 	while (true) {
+ 		int n_ready = poll(poll_fds.data(), poll_fds.size(), -1);
+ 
