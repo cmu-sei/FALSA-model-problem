@@ -33,8 +33,13 @@ RUN \
     mkdir -p ${MODEL_PROBLEM_DIR} && \
     cd ${MODEL_PROBLEM_DIR} && \
     apt-get -y update && export DEBIAN_FRONTEND=noninteractive && \
-    apt-get -y upgrade && \
-    apt-get -y install vim git cmake build-essential autoconf libtool pkg-config \
+    apt-get -y upgrade
+
+RUN \
+    apt-get -y install --fix-broken vim git cmake build-essential autoconf libtool pkg-config
+
+RUN \
+    apt-get -y install --fix-broken \
       ca-certificates \
       lsb-release \
       sudo \
@@ -63,19 +68,21 @@ ENV LIBGL_ALWAYS_INDIRECT=1
 COPY px4_poll_fix.patch ${MODEL_PROBLEM_DIR}
 RUN \
     apt autoclean && apt autoremove && \
-    apt install -y mesa-utils libgl1-mesa-glx && \
+    apt install -y mesa-utils libgl1 && \
     cd ${MODEL_PROBLEM_DIR} && \
     # setup PX4
-    git clone https://github.com/PX4/PX4-Autopilot.git --recursive && \
+    git clone --depth 1 --branch v1.14.3 https://github.com/PX4/PX4-Autopilot.git --recursive && \
     cd PX4-Autopilot && \
     git apply ${MODEL_PROBLEM_DIR}/px4_poll_fix.patch && \
     bash ./Tools/setup/ubuntu.sh --no-nuttx && \
+    # fix version error
+    pip uninstall em && pip install empy==3.3.4 && \
     make px4_sitl
 
 # MAVSDK
 RUN \
     cd ${MODEL_PROBLEM_DIR} && \
-    git clone https://github.com/mavlink/MAVSDK.git && \
+    git clone --depth 1 --branch v2.12.12 https://github.com/mavlink/MAVSDK.git && \
     cd MAVSDK && \
     git submodule update --init --recursive && \
     cmake -DCMAKE_BUILD_TYPE=Debug -Bbuild/default -H. && \
@@ -84,7 +91,7 @@ RUN \
 # POCO
 RUN \
     cd ${MODEL_PROBLEM_DIR} && \
-    git clone -b master https://github.com/pocoproject/poco.git && \
+    git clone --depth 1 --branch poco-1.13.3-release https://github.com/pocoproject/poco.git && \
     cd poco && \
     mkdir cmake-build && \
     cd cmake-build && \
@@ -95,7 +102,6 @@ RUN \
 RUN \
     cd ${MODEL_PROBLEM_DIR} && \
     git clone -b v1.60.0 --depth 1 https://github.com/grpc/grpc
-    #git clone --recurse-submodules -b v1.60.0 --depth 1 --shallow-submodules https://github.com/grpc/grpc && \
 
 RUN \
     cd ${MODEL_PROBLEM_DIR}/grpc && \
@@ -106,7 +112,7 @@ RUN \
           -DgRPC_BUILD_TESTS=OFF \
           ../.. && \
     make -j 4 && \
-    make install
+    make install    
 
 RUN ldconfig
 

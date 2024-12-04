@@ -1,225 +1,129 @@
-# Model Problem Design and Implementation Document
+# Model Problem: Getting Started
+These instructions explains how to build and run the code using a Docker
+container, which provides the right versions of all the dependencies.
+Instructions for how to build the code without Docker are in
+[build-details.md](doc/build-details.md).
 
-> **Note:** This guide contains the details of how the model problem is built and run, but for an easier environment, look at this other [README-devcontainer.md](README-devcontainer.md).
+These instructions have been tested in Linux and macOS.
 
-The model problem consists of several components located in their own subfolders.
-Each subfolder has its own CMakeLists.txt file.
-The general procedure for building a component is the following:
-
-````
-mkdir build
-cd build
-cmake ..
-make
-````
-
-If a source file is modified then simply typing 'make' in the build folder can rebuild the project.
-If the CMakeLists.txt is not modified then 'cmake ..' does not need to be run again if it was already run.
-
+There are two options. One is to build it and run it from a terminal, and the
+other is to do that in VS Code using a dev container.
 
 ## Prerequisites
+You need to have Docker Desktop, configured so that your user can use Docker.
+In macOS, you also need XQuartz.
+For the VS Code option, you need VS Code installed.
 
+### XQuartz in macOS
+You need to install XQuartz and set its Security preferences to *Authenticate
+connections* and *Allow connections from network clients*.
 
-### CMake
+The following needs to be run once in a terminal to configure XQuartz.
 
-The project uses cmake and as some of the components such as gRPC and MAVSDK require a newer version of cmake it may be necessary to upgrade your existing cmake installation. The instructions for gRPC and MAVSDK discuss these requirements.CMake can be installed from source or through other easier methods.
+```
+defaults write org.xquartz.X11 enable_iglx -bool YES
+```
 
+If XQuartz was already running, close and restart it.
 
-### Protobuffers
-Proto buffers need to be built and installed.
-If you clone the protobuf folder the installation can be done by executing the commands:
+In addition, the command `xhost +localhost` has to be run in the host before an
+app in the container is allowed to connect. **Important:** this needs to be done again each time XQuartz or the Mac is restarted.
 
-````
-mkdir build
-cd build
-make
-sudo make install
-````
+## Building and running from a terminal
+After you have cloned the repository, open a terminal and go to the directory
+where this file is. Then, execute the following command that will create the
+Docker container and start it so that the code can be built and run.
 
-### gRPC
-grpc needs to be built and installed.
-Follow the instruction for installing it on your OS.
-
-````
-https://grpc.io/docs/languages/cpp/quickstart/
-````
-
-### Poco
-
-Poco C++ is a general purpose library that provides different facilities for building applications in C++.
-
-Installing it on your OS can happen by following the following instructions:
-
-https://pocoproject.org/download.html
-
-
-### MAVSDK
-
-Install MAVSDK following the instructions for building from source:
-
-````
-https://mavsdk.mavlink.io/main/en/cpp/guide/build.html
-````
-
-A local install is possible, but a global one is also possible and it is even better.
-This will get the latest code from the master branch of MAVSDK.
-
-Patch the offboard example (offboard.cpp)
-
-Add the following include clause at the begining of the file:
-````
-#include <mavsdk/plugins/param/param.h>
-````
-
-Add the following change in main():
-
-````
-// Set this parameter to avoid failure mode
-auto param = Param(std::shared_ptr<System>(system.value()));
-param.set_param_int("COM_RCL_EXCEPT", 4);
-
-````
-
-Check if the examples build properly.
-If not set the following environment variable first and then run the build process for the examples:
-
-````
-export MAVLink_DIR="~/MAVSDK/build/default/third_party/install/lib/cmake/MAVLink/"
-````
-
-Check if the examples work. For this one needs to install PX4 (See the next section):
-
-- Run an instance of PX4 with a simulator
-````
-   make px4_sitl jmavsim
-````
-- From a different terminal run the offboard example and observe the output in the simulator
-````
-   ./offboard
-````
-
-
-### PX4
-
-Install PX4 in your OS following the instructions on this page:
-
-````
-https://docs.px4.io/main/en/dev_setup/building_px4.html
-````
-
-Starting PX4 with the default JMavsim simulator can be done with the following command:
-
-````
-make px4_sitl jmavsim
-````
-
-
-## Folder Structure
-
-### Common Folders
-
-The following folders exist in the modelproblem folder:
-
-````
-.
-├── assurancebrkr
-├── configs
-├── gcs
-├── guidance
-├── interfaces
-├── missionmanager
-├── payload
-├── protos
-└── utils
-````
-
-They have the following roles:
-
-  + assurancebrkr - Assurance Broker Component  
-  + configs - Contains common configuration files
-  + interfaces - Contains common header files
-  + protos - Contains .proto files, used by gRPC
-  + gcs - Ground Control Station Component
-  + missionmanager - Mission Manager Component
-  + guidance - Guidance Component
-  + payload - Payload Controller Component
-  + utils - Contains a port parsing utility class
-
-
-
-## Build the code
-
-There is a high level CMakeLists.txt file that builds all subfolders using their CMakeLists.txt files.
-The code can be build as we build any CMake project:
-````
+```
+./start-container.sh
+```
+Once inside the container, use the following commands to build the code.
+```
 mkdir build
 cd build
 cmake ..
 make
-````
-Alternatively each subfolder can be used to build each individual component using the following procedure:
-````
-cd subfolder
-mkdir build
-cd build
-cmake ..
-make
-````
+cd ..
+```
 
-### Starting individual components
+Follow the instructions in [Running the model problem](#running-the-model-problem).
 
-Run the script that starts each process created through the build process from the respective folder.
-Each component has a shell script for starting it.
-For example to start the guidance component run its shell script.
+## Dev Container setup for VS Code
+With this setup it is possible to use VS Code to develop the model problem
+with the code being built and run in a Docker container.
 
-````
-    $ cd guidance
-    $ ./start_guidance.sh
-````
-
-All components can be started in individual terminal windows to enable output and debugging.
-The components that exist are:
-
-  + assurancebrkr - Assurance Broker Component
-  + gcs - Ground Control Station Component
-  + missionmanager - Mission Manager Component
-  + guidance - Guidance Component
-  + payload - Payload Controller Component
+### VS Code
+Follow the [VS Code Dev Containers tutorial](https://code.visualstudio.com/docs/devcontainers/tutorial) up to the section "Check installation"
 
 
-In addition we have the PX4 run in a separate terminal with JMavSim.
+### Getting started with the container
+After you clone the repository, start VS Code and open the folder where this file is.
 
-### How to launch the model problem software
+To start developing in the container, press F1 in VS Code and select *Dev Containers: Reopen in Container*
+- you can start typing to filter the commands
+- the first time will take a long time to build the container image
+
+After that succeeds, VS Code development environment will use the container to build and run code, but your edits to the files will be saved in your local file system.
+
+#### Troubleshooting
+If you get an error
+`You don't have enough free space in /var/cache/apt/archives/`
+while the container builds, go to Docker settings and increase the virtual
+disk size.
+
+### Building the code
+The project will be configured to be built automatically by the CMake Tools extension installed in the container (it may ask the first time).
+If it doesn't configure the project nor ask, you may need to install the CMake Tools extensions in the container. Just click `CMakeLists.txt` and it should prompt to install it.
+
+To build the project, click on the *Build* command in the bottom bar of VS Code, or in the file explorer view of VS Code, right-click on `CMakeLists.txt` and click on *Build All Projects*. Note that VS Code may suggest to install the CMake extension. If it does, you need to install it in the container because it was not installed at build time.
+
+The first time is built, you will get a prompt at the top of VS Code to select a build environment. Select "[unspecified]"
+
+## Running the model problem
+To run the model problem, you need to access a terminal in the container.
+In VS Code: click on *TERMINAL* on the window below the code editor, close to where the build output is shown.
+If you are not using VS Code, just use the `start-container.sh` command
+described above.
+
+To launch the model problem, enter the following in the terminal:
+```
+./launch.sh
+```
+
+That will open a large terminal window split into six different panes running the different components of the model problem.
+This window splitting into panes is done with *tmux*, so if you need help to navigate between them, see the section *Changing the active pane* in [this guide](https://github.com/tmux/tmux/wiki/Getting-Started#changing-the-active-pane).
+Basically, press `Ctrl-b` followed by an arrow key to switch between panes.
+
+When it starts, the GCS pane is selected. Here's a screenshot of sample session.
+Note that you have to invoke gcs with `gcs/gcsapp`.
+
+![Sample session](doc/sample-session.png)
+
+For a test run, enter the following command in the GCS pane.
+
+```
+gcs/gcsapp setmissionparams
+```
+
+The following parameters work well for an example or demonstration:
+- Altitude: 1.7
+- Latitude: 47.4
+- Longitude: 8.55
+- Start Time: 0
+- End Time: 10
+
+Then enter the following command:
+
+```
+gcs/gcsapp takeoff
+```
+
+To close all the model problem applications, execute the following in the same terminal where you executed `./launch.sh`:
+
+```
+./closeall.sh
+```
 
 
-  + Start 6 terminal windows
-  + Start PX4 in one of the terminal windows with the command: make px4_sitl jmavsim
-  + After PX4 has completely started and is ready to be used, in the second terminal window navigate to guidance folder and execute: ./start_guidance.sh
-  + In the third terminal window navigate to the missionmanager window and execute start_missionmanager.sh script   
-  + In the forth terminal window navigate to the payload folder and start the app by executing start_payload.sh
-  + In the fifth terminal window navigate to gcs folder and execute the start_gcs.sh script
-  + In the sixth terminal window navigate to assurancebrkr folder and execute the start_assurancebrkr.sh script
-  + Execute first ./start_gcs.sh setmissionparams. The following parameters work well for an example or demonstration:
-      + Altitude: 1.7
-      + Latitude: 47.4
-      + Longitude: 8.55
-      + Start Time: 0
-      + End Time: 10
-  + Execute second ./start_gcs.sh takeoff
-  + The clearmissionparams and abort can also be issued if needed before or during a mission respectively
-
-
-### Debugging
-
-Debugging can happen through different IDEs.
-One popular example can be the Eclipse IDE for C++.
-Another one is Visual Studio Code.
-Yet another possibility is to use a commercial tool such as IntelliJ IDE for C++.
-If the code is built with debugging symbols (Add the -g to the compiler parameters in your CMakefile.txt) one can also use gdb as a bare bones approach to debugging.
-
-
-### Logging
-Logging is supported by the Poco C++ library.
-The format of logging for individual components needs to be finalized based on the needs of the scientific machine learning algorithms.
 
 
